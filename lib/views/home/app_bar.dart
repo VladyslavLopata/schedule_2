@@ -1,4 +1,3 @@
-import 'package:division/division.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:schedule_2/views/home/desktop/desktop_app_bar.dart';
