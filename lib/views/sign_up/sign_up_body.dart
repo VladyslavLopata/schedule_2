@@ -7,7 +7,7 @@ import 'package:schedule_2/models/user_login_model.dart';
 import 'package:schedule_2/services/navigation_service.dart';
 import 'package:schedule_2/views/common/input_field.dart';
 
-class SignInBody extends StatelessWidget {
+class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserLoginModel model = Provider.of<UserLoginModel>(context);
@@ -16,14 +16,15 @@ class SignInBody extends StatelessWidget {
 
     final headerSize = 60.0;
     final bodySize = MediaQuery.of(context).size.height - headerSize;
-    final registrationContainerSize = MediaQuery.of(context).size.height / 3.0;
+    final registrationContainerSize =
+        MediaQuery.of(context).size.height / 3.0 + 200.0;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         AuthHeader(
           height: headerSize,
-          routeTo: LoginState.register,
+          routeTo: LoginState.auth,
         ),
         Container(
           height: bodySize,
@@ -43,19 +44,19 @@ class SignInBody extends StatelessWidget {
                   child: Column(
                     children: [
                       Txt(
-                        'Авторизація',
+                        'Реєстрація',
                         style: TxtStyle()..fontSize(25),
                       ),
-                      ...['Email', 'Пароль'].map(
+                      ...['Ім\'я', 'Email', 'Пароль', 'Повторіть пароль'].map(
                         (e) => InputField(title: e),
                       ),
                       RaisedButton(
                         onPressed: () async {
-                          await model.authenticate();
+                          await model.register();
                           navigationService.renavigate(
                               model.userLoginState, context);
                         },
-                        child: Text("Увійти"),
+                        child: Text("Зареєструватися"),
                       )
                     ],
                   ),

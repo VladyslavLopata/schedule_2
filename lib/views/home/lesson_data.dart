@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:schedule_2/models.dart/card.dart';
-import 'package:schedule_2/models.dart/day_convert.dart';
+import 'package:schedule_2/models/card.dart';
+import 'package:schedule_2/models/day_convert.dart';
 
 class LessonData extends StatelessWidget {
   const LessonData({Key key, this.card}) : super(key: key);

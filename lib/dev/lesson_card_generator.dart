@@ -1,4 +1,4 @@
-import 'package:schedule_2/models.dart/card.dart';
+import 'package:schedule_2/models/card.dart';
 
 class LessonCardGenerator {
   static List<LessonCard> _cards;

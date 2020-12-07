@@ -1,6 +1,6 @@
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
-import 'package:schedule_2/models.dart/card.dart';
+import 'package:schedule_2/models/card.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LinkLesson extends StatelessWidget {

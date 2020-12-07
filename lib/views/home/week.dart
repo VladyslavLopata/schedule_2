@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_2/dev/lesson_card_generator.dart';
-import 'package:schedule_2/models.dart/card.dart';
+import 'package:schedule_2/models/card.dart';
 
 import 'day.dart';
 

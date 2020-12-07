@@ -1,7 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:schedule_2/models/user_login_model.dart';
 import 'package:schedule_2/routes/home_route.dart';
 import 'package:schedule_2/routes/sign_in_route.dart';
+import 'package:schedule_2/routes/sign_up_route.dart';
+import 'package:schedule_2/routes/user_route.dart';
+import 'package:schedule_2/services/navigation_service.dart';
 
 void main() {
   runApp(
@@ -25,14 +30,24 @@ class ScheduleApp extends StatelessWidget {
 
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
-            theme: ThemeData.light().copyWith(),
-            routes: {
-              '/': (context) => SignInRoute(),
-              '/home': (context) => HomeRoute(),
-              '/register': (context) =>
-                  Scaffold(body: Center(child: Text('NOT AVAILABLE YET'))),
-            },
+          return MultiProvider(
+            providers: [
+              Provider<UserLoginModel>(
+                create: (_) => UserLoginModel(),
+              ),
+              Provider<NavigationService>(
+                create: (_) => NavigationService(),
+              ),
+            ],
+            child: MaterialApp(
+              theme: ThemeData.light().copyWith(),
+              routes: {
+                '/': (context) => SignInRoute(),
+                '/home': (context) => HomeRoute(),
+                '/register': (context) => SignUpRoute(),
+                '/user': (context) => UserRoute(),
+              },
+            ),
           );
         }
 

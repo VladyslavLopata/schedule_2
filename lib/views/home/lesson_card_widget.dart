@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:schedule_2/models.dart/card.dart';
+import 'package:schedule_2/models/card.dart';
 import 'package:schedule_2/views/home/lesson_data.dart';
 import 'package:schedule_2/views/home/link_lesson.dart';
 
