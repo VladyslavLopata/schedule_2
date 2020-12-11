@@ -42,9 +42,9 @@ class ScheduleApp extends StatelessWidget {
             child: MaterialApp(
               theme: ThemeData.light().copyWith(),
               routes: {
-                '/': (context) => SignInRoute(),
-                '/home': (context) => HomeRoute(),
-                '/register': (context) => SignUpRoute(),
+                '/': (context) => const SignInRoute(),
+                '/home': (context) => const HomeRoute(),
+                '/register': (context) => const SignUpRoute(),
                 '/user': (context) => UserRoute(),
               },
             ),

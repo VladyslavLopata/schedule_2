@@ -25,9 +25,9 @@ class LessonCard {
     return LessonCard(
       week: week ?? this.week,
       day: day ?? this.day,
-      name: lessonName ?? this.name,
+      name: lessonName ?? name,
       teacher: teacher ?? this.teacher,
-      number: beginTime ?? this.number,
+      number: beginTime ?? number,
       link: link ?? this.link,
     );
   }

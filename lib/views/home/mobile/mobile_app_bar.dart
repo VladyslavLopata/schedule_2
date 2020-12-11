@@ -5,6 +5,10 @@ class MobileAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Parent(
+      style: ParentStyle()
+        ..alignmentContent.center()
+        ..padding(all: 20)
+        ..background.color(Colors.blue),
       child: Txt(
         'Розклад',
         style: TxtStyle()
@@ -12,10 +16,6 @@ class MobileAppBar extends StatelessWidget {
           ..fontWeight(FontWeight.bold)
           ..textColor(Colors.white),
       ),
-      style: ParentStyle()
-        ..alignmentContent.center()
-        ..padding(all: 20)
-        ..background.color(Colors.blue),
     );
   }
 }

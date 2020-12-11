@@ -21,13 +21,13 @@ class InputField extends StatelessWidget {
           controller: TextEditingController(),
           obscureText: title.contains('ароль'),
           decoration: InputDecoration(
-            labelText: '$title',
+            labelText: title,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                   color: model.authenticationError
                       ? Colors.red
                       : Colors.blueAccent),
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(12),
               ),
             ),
@@ -36,14 +36,14 @@ class InputField extends StatelessWidget {
                   color: model.authenticationError
                       ? Colors.red
                       : Colors.blueAccent),
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(12),
               ),
             ),
           ),
           onChanged: (String text) {
             switch (title) {
-              case 'Ім\'я':
+              case "Ім'я":
                 model.name = text;
                 break;
               case 'Пароль':

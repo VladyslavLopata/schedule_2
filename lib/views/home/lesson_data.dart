@@ -8,17 +8,15 @@ class LessonData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          'Початок: ${DayConvert.getStringTimeFromNumber(card.number)}',
-          style: TextStyle(fontSize: 20),
-        ),
-        Text(
-          'Викладач: ${card.teacher}',
-          style: TextStyle(fontSize: 20),
-        ),
-      ]),
-    );
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(
+        'Початок: ${DayConvert.getStringTimeFromNumber(card.number)}',
+        style: const TextStyle(fontSize: 20),
+      ),
+      Text(
+        'Викладач: ${card.teacher}',
+        style: const TextStyle(fontSize: 20),
+      ),
+    ]);
   }
 }

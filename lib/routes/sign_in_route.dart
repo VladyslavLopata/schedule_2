@@ -6,7 +6,7 @@ import 'package:schedule_2/services/navigation_service.dart';
 import 'package:schedule_2/views/sign_in/sign_in_body.dart';
 
 class SignInRoute extends StatelessWidget {
-  SignInRoute({Key key}) : super(key: key);
+  const SignInRoute({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -17,15 +17,24 @@ class LessonCardWidget extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width / 7,
         decoration: BoxDecoration(
-            border: Border.all(width: 1),
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+            border: Border.all(),
+            borderRadius: const BorderRadius.all(Radius.circular(8))),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              LinkLesson(card: card),
-              Divider(),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                LinkLesson(card: card),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.edit,
+                    size: 20,
+                  ),
+                )
+              ]),
+              const Divider(),
               LessonData(card: card),
             ],
           ),

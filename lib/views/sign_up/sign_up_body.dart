@@ -14,22 +14,21 @@ class SignUpBody extends StatelessWidget {
     final NavigationService navigationService =
         Provider.of<NavigationService>(context);
 
-    final headerSize = 60.0;
+    const headerSize = 60.0;
     final bodySize = MediaQuery.of(context).size.height - headerSize;
     final registrationContainerSize =
         MediaQuery.of(context).size.height / 3.0 + 200.0;
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        AuthHeader(
+        const AuthHeader(
           height: headerSize,
           routeTo: LoginState.auth,
         ),
         Container(
           height: bodySize,
           alignment: Alignment.center,
-          child: Container(
+          child: SizedBox(
             height: registrationContainerSize,
             width: MediaQuery.of(context).size.width / 3.0,
             child: Column(
@@ -47,7 +46,7 @@ class SignUpBody extends StatelessWidget {
                         'Реєстрація',
                         style: TxtStyle()..fontSize(25),
                       ),
-                      ...['Ім\'я', 'Email', 'Пароль', 'Повторіть пароль'].map(
+                      ...["Ім'я", 'Email', 'Пароль', 'Повторіть пароль'].map(
                         (e) => InputField(title: e),
                       ),
                       RaisedButton(
@@ -56,7 +55,7 @@ class SignUpBody extends StatelessWidget {
                           navigationService.renavigate(
                               model.userLoginState, context);
                         },
-                        child: Text("Зареєструватися"),
+                        child: const Text("Зареєструватися"),
                       )
                     ],
                   ),

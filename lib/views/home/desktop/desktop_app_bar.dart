@@ -30,24 +30,24 @@ class DesktopAppBar extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 5),
                   child: RaisedButton(
-                    onPressed: () async {
-                      await model.signOut();
-                      navigator.renavigate(model.userLoginState, context);
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/user');
                     },
-                    child: Text('Вийти'),
+                    child: const Text('В кабінет'),
                   ),
                 ),
                 RaisedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/user');
+                  onPressed: () async {
+                    await model.signOut();
+                    navigator.renavigate(model.userLoginState, context);
                   },
-                  child: Text('В кабінет'),
+                  child: const Text('Вийти'),
                 )
               ],
             )
           ],
         ),
-        Divider(
+        const Divider(
           thickness: 1,
           color: Colors.black,
         ),

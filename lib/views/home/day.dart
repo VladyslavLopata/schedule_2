@@ -9,18 +9,18 @@ class Day extends StatelessWidget {
   const Day({Key key, this.dayCards}) : super(key: key);
 
   List<Widget> _generateLessons(BuildContext context) {
-    List<Widget> lessons = List();
+    final List<Widget> lessons = [];
     lessons.add(
       Container(
-        margin: EdgeInsets.only(left: 20),
+        margin: const EdgeInsets.only(left: 20),
         child: Text(
           DayConvert.getStringFromIndex(dayCards[0].day),
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),
     );
     lessons.add(
-      SizedBox(
+      const SizedBox(
         height: 20,
       ),
     );
@@ -31,11 +31,9 @@ class Day extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: _generateLessons(context),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: _generateLessons(context),
     );
   }
 }

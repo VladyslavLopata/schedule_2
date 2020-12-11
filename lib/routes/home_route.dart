@@ -7,7 +7,7 @@ import 'package:schedule_2/views/home/home_body.dart';
 import '../enums.dart';
 
 class HomeRoute extends StatelessWidget {
-  HomeRoute({Key key}) : super(key: key);
+  const HomeRoute({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

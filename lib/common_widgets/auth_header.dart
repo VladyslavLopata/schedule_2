@@ -20,13 +20,13 @@ class AuthHeader extends StatelessWidget {
     final NavigationService navigationService =
         Provider.of<NavigationService>(context);
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       height: height,
       alignment: Alignment.center,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          const Text(
             'Rozklad+',
             style: TextStyle(fontSize: 30),
           ),
@@ -35,8 +35,9 @@ class AuthHeader extends StatelessWidget {
               model.userLoginState = routeTo;
               navigationService.renavigate(model.userLoginState, context);
             },
-            child:
-                routeTo == LoginState.auth ? Text('Sign In') : Text('Sign Up'),
+            child: routeTo == LoginState.auth
+                ? const Text('Sign In')
+                : const Text('Sign Up'),
           )
         ],
       ),

@@ -7,7 +7,7 @@ import 'package:schedule_2/views/sign_up/sign_up_body.dart';
 import '../enums.dart';
 
 class SignUpRoute extends StatelessWidget {
-  SignUpRoute({Key key}) : super(key: key);
+  const SignUpRoute({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 class AuthInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderSide: BorderSide(width: 1),
-        ),
+        border: OutlineInputBorder(),
       ),
     );
   }

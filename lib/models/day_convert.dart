@@ -10,14 +10,14 @@ class DayConvert {
       case 4:
         return 'Четвер';
       case 5:
-        return 'П\'ятниця';
+        return "П'ятниця";
       case 6:
         return 'Субота';
     }
     return 'Помилка серверу';
   }
 
-  static getStringTimeFromNumber(int number) {
+  static String getStringTimeFromNumber(int number) {
     switch (number) {
       case 0:
         return '08:30';
@@ -32,5 +32,6 @@ class DayConvert {
       case 5:
         return '18:05';
     }
+    return '';
   }
 }
