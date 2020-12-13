@@ -1,20 +1,25 @@
 class DayConvert {
+  static const Map<int, String> dayIndexMap = {
+    1: 'Понеділок',
+    2: 'Вівторок',
+    3: 'Середа',
+    4: 'Четвер',
+    5: "П'ятниця",
+    6: 'Субота',
+  };
   static String getStringFromIndex(int index) {
-    switch (index) {
-      case 1:
-        return 'Понеділок';
-      case 2:
-        return 'Вівторок';
-      case 3:
-        return 'Середа';
-      case 4:
-        return 'Четвер';
-      case 5:
-        return "П'ятниця";
-      case 6:
-        return 'Субота';
-    }
-    return 'Помилка серверу';
+    assert(dayIndexMap.containsKey(index),
+        'index out of boud to convert to a valid day of week');
+    return dayIndexMap[index];
+  }
+
+  static int getIndexFromString(String value) {
+    assert(dayIndexMap.containsValue(value),
+        'index out of boud to convert to a valid day of week');
+    return dayIndexMap.entries
+        .where((MapEntry<int, String> entry) => entry.value == value)
+        .first
+        .key;
   }
 
   static String getStringTimeFromNumber(int number) {

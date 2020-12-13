@@ -27,7 +27,10 @@ class LessonCardWidget extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 LinkLesson(card: card),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/edit',
+                        arguments: <String, dynamic>{'card': card});
+                  },
                   icon: const Icon(
                     Icons.edit,
                     size: 20,

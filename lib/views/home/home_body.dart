@@ -10,6 +10,18 @@ class HomeBody extends StatelessWidget {
       children: [
         ScheduleAppBar(),
         ScheduleBody(),
+        Container(
+          decoration: BoxDecoration(
+              shape: BoxShape.circle, border: Border.all(color: Colors.blue)),
+          child: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/edit');
+            },
+            icon: const Icon(Icons.add),
+            iconSize: 20,
+            color: Colors.blue,
+          ),
+        )
       ],
     );
   }

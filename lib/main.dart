@@ -1,7 +1,9 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:schedule_2/models/user_login_model.dart';
+import 'package:schedule_2/routes/edit_field_route.dart';
 import 'package:schedule_2/routes/home_route.dart';
 import 'package:schedule_2/routes/sign_in_route.dart';
 import 'package:schedule_2/routes/sign_up_route.dart';
@@ -41,11 +43,15 @@ class ScheduleApp extends StatelessWidget {
             ],
             child: MaterialApp(
               theme: ThemeData.light().copyWith(),
+              title: 'BotToast Demo',
+              builder: BotToastInit(), //1. call BotToastInit
+              navigatorObservers: [BotToastNavigatorObserver()],
               routes: {
                 '/': (context) => const SignInRoute(),
                 '/home': (context) => const HomeRoute(),
                 '/register': (context) => const SignUpRoute(),
                 '/user': (context) => UserRoute(),
+                '/edit': (context) => const EditFieldRoute(),
               },
             ),
           );

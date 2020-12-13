@@ -27,6 +27,42 @@ abstract class _UserLoginModel with Store {
   @observable
   String passwordCheck;
 
+  String lessonName, link, teacher, number, group, day, week;
+
+  @observable
+  bool lessonAddError = false;
+
+  Future<void> saveLesson() async {
+    final CollectionReference usersTable = _storage.collection('Users');
+    final snapshot = await usersTable.doc(getEmail()).get();
+    final CollectionReference lessonsTable = _storage.collection('Lessons');
+    await lessonsTable.doc('$number$day$week').set({
+      'day': int.parse(day),
+      'link': link,
+      'name': lessonName,
+      'start time': int.parse(number),
+      'teacher': snapshot.data()['Full Name'],
+      'week': int.tryParse(week) ?? 1,
+    });
+  }
+
+  Future<void> saveChangedData(LessonCard card) async {
+    await _storage
+        .collection('Lessons')
+        .doc('${card.number}${card.day}${card.week}')
+        .delete();
+    final List<LessonCard> lessonData = await loadDays(weekNumber);
+    final data = lessonData.where((element) =>
+        element.day == int.parse(day) &&
+        element.week == int.parse(week) &&
+        element.number == int.parse(number));
+    if (data.isNotEmpty && card.name != data.first.name) {
+      lessonAddError = true;
+      return;
+    }
+    await saveLesson();
+  }
+
   @observable
   LoginState userLoginState;
 
@@ -55,10 +91,13 @@ abstract class _UserLoginModel with Store {
     );
   }
 
-  Future<List<LessonCard>> loadDays() async {
+  int weekNumber = -1;
+
+  Future<List<LessonCard>> loadDays(int number) async {
+    weekNumber = number;
     final CollectionReference lessonTable = _storage.collection('Lessons');
     final QuerySnapshot query =
-        await lessonTable.where('start time', isGreaterThan: -1).get();
+        await lessonTable.where('week', isEqualTo: number).get();
     final List<LessonCard> res = [];
     for (final QueryDocumentSnapshot snapshot in query.docs) {
       res.add(_getLessonData(snapshot.data()));

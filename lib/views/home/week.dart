@@ -10,18 +10,9 @@ class Week extends StatelessWidget {
 
   final int number;
 
-// final List<LessonCard> weekCards = LessonCardGenerator.cards
-//         .where((element) => element.week == number)
-//         .toList();
-//     final days = weekCards.map((e) => e.day).toSet();
-//     return days
-//         .map((e) => Day(
-//             dayCards: weekCards.where((element) => element.day == e).toList()))
-//         .toList();
-
   Future<List<Day>> _generateDays(BuildContext context) async {
     final UserLoginModel model = Provider.of<UserLoginModel>(context);
-    final List<LessonCard> weekCards = await model.loadDays();
+    final List<LessonCard> weekCards = await model.loadDays(number);
 
     final List<LessonCard> currentWeekCards =
         weekCards.where((element) => element.week == number).toList();

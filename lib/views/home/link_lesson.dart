@@ -13,16 +13,39 @@ class LinkLesson extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Txt(
-      '${card.number + 1}. ${card.name}',
-      gesture: Gestures()
-        ..onTap(() async {
+    return Container(
+      constraints:
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 7 - 72),
+      child: InkWell(
+        onTap: () async {
+          if (card.link.startsWith('www.')) {
+            card.link = 'http://${card.link}';
+          }
+          if (!card.link.startsWith('http')) {
+            card.link = 'https://${card.link}';
+          }
           await launch(card.link);
-        }),
-      style: TxtStyle()
-        ..textColor(Colors.blueAccent)
-        ..overflow.hidden()
-        ..fontSize(20),
+        },
+        child: Expanded(
+            child: Text(
+          '${card.number + 1}. ${card.name}',
+          overflow: TextOverflow.fade,
+          softWrap: true,
+          style: const TextStyle(color: Colors.blueAccent, fontSize: 20),
+        )),
+      ),
     );
+
+    // Txt(
+    //   '${card.number + 1}. ${card.name}',
+    //   gesture: Gestures()
+    //     ..onTap(() async {
+    //       await launch(card.link);
+    //     }),
+    //   style: TxtStyle()
+    //     ..textColor(Colors.blueAccent)
+    //     ..overflow.hidden()
+    //     ..fontSize(20),
+    // );
   }
 }
